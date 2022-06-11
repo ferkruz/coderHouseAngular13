@@ -1,4 +1,4 @@
-<header class="border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4">
+<header class="border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4 z-300">
   
   <!-- Logo text or image -->
   <div class="flex items-center justify-between mb-4 md:mb-0">
@@ -18,9 +18,62 @@
     <input class="bg-grey-lightest border-2 focus:border-orange p-2 rounded-lg shadow-inner w-full" placeholder="Search" type="text">
     <button class="hidden">Submit</button>
   </form>
-  
+  <!-- Dropdown menu -->
+<div class="p-4">
+  <div class="group relative">
+      <button class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">Menü</button>
+      <nav tabindex="0" class="border-2 bg-white invisible border-gray-800 rounded w-60 absolute left-0 top-full transition-all opacity-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-99 ">
+          <ul class="py-1" >
+              <li>
+                  <a href="#" class="bg-white-100 block px-4 py-2 hover:bg-gray-100 z-0">
+                      Edit
+                  </a>
+              </li>
+              <li>
+                <a href="#" class="bg-white-100 block px-4 py-2 hover:bg-gray-100">
+                      Delete
+                  </a>
+              </li>
+              <li>
+                  <a href="#" class="bg-white-100 block px-4 py-2 hover:bg-gray-100">
+                      Reply
+                  </a>
+              </li>
+          </ul>
+      </nav>
+  </div>
+</div>
   <nav>
     <ul class="list-reset md:flex md:items-center">
+
+      <li class="md:ml-4">
+        <div class="p-4">
+          <div class="group relative">
+              <button class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">Menú</button>
+              <nav tabindex="0" class="border-2 bg-white invisible border-gray-800 rounded w-60 absolute left-0 top-full transition-all opacity-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-1">
+                  <ul class="py-1">
+                      <li>
+                          <a href="#" class="text-grey font-semibold bg-white-100 block px-4 py-2 hover:bg-gray-100">
+                              Edit
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#" class="text-grey font-semibold bg-white-100 block px-4 py-2 hover:bg-gray-100">
+                              Delete
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#" class="text-grey font-semibold bg-white-100 block px-4 py-2 hover:bg-gray-100">
+                              Reply
+                          </a>
+                      </li>
+                  </ul>
+              </nav>
+          </div>
+        </div>
+      </li>
+
+
       <li class="md:ml-4">
         <a class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href="#">
           Clases
@@ -43,5 +96,37 @@
 <!-- <button class="py-2 px-3 m-2 bg-blue-500 hover:bg-nav-hover-blue rounded-md text-white">Click Me!</button> -->
 
 <app-layout></app-layout>
+<app-users></app-users>
+
 <app-form></app-form>
 <app-footer></app-footer>
+
+<jm-fancy-toaster></jm-fancy-toaster>
+
+<button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button" data-dropdown-toggle="dropdown">Dropdown button <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+
+<!-- Dropdown menu -->
+<div class="p-4">
+  <div class="group relative">
+      <button class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">Menü</button>
+      <nav tabindex="0" class="border-2 bg-white invisible border-gray-800 rounded w-60 absolute left-0 top-full transition-all opacity-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-1">
+          <ul class="py-1">
+              <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100">
+                      Edit
+                  </a>
+              </li>
+              <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100">
+                      Delete
+                  </a>
+              </li>
+              <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100">
+                      Reply
+                  </a>
+              </li>
+          </ul>
+      </nav>
+  </div>
+</div>
