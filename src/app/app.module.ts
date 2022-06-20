@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RoundBlockDirective } from './shared/directives/round-block.directive';
 import { ResaltarDirective } from './shared/directives/resaltar.directive';
@@ -14,9 +15,13 @@ import { FancyToasterModule } from './fancy-toaster/fancy-toaster.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import { UsersComponent } from './users/users.component';
 import { TableUSerComponent } from './users/table-user/table-user.component';
 import { GridUserComponent } from './users/grid-user/grid-user.component';
+
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,9 @@ import { GridUserComponent } from './users/grid-user/grid-user.component';
     ResaltarDirective,
     UsersComponent,
     TableUSerComponent,
-    GridUserComponent
+    GridUserComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +43,8 @@ import { GridUserComponent } from './users/grid-user/grid-user.component';
     BrowserAnimationsModule,
     FancyToasterModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
+    FormsModule
     
   ],
   providers: [],

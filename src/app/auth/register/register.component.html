@@ -1,0 +1,138 @@
+<div class="container mx-auto px-4 h-full">
+    <div class="flex content-center items-center justify-center h-full">
+      <div class="w-full lg:w-6/12 px-4">
+        <div
+          class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0"
+        >
+          <div class="rounded-t mb-0 px-6 py-6">
+            <div class="text-center mb-3">
+              <h4 class="text-2xl font-semibold">Registrarse</h4>
+            </div>
+           
+            <hr class="mt-6 border-b-1 border-blueGray-300" />
+          </div>
+          <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+
+            <form [formGroup]="formularioRegister" (ngSubmit)="submitRegister()">
+              <div class="relative w-full mb-3">
+                <label
+                  for="Nombre completo"
+                  class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  htmlFor="grid-password"
+                >
+                  Nombre completo
+                </label>
+                <input
+                formControlName="name"
+                  type="text"
+                  class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring focus: ring-red-300 w-full ease-linear transition-all duration-550"
+                  placeholder="Name"
+                />
+
+                <!-- mensajes de validación -->
+                <div *ngIf="formularioRegister.controls['name'].errors && formularioRegister.controls['name'].dirty" class="alert alert-danger mt-1">
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioRegister.controls['name'].errors['required']">Campo requerido</p>
+
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioRegister.controls['name'].errors['minlength']">
+                      Este campo debe poseer al menos {{ formularioRegister.controls['name'].errors['minlength'].requiredLength }} caracteres.
+                      Tipeados {{ formularioRegister.controls['name'].errors['minlength'].actualLength }} caracter(es).
+                  </p>
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioRegister.controls['name'].errors['maxlength']">
+                      Este campo debe poseer como máximo {{ formularioRegister.controls['name'].errors['maxlength'].requiredLength }} caracteres.
+                      Tipeados {{ formularioRegister.controls['name'].errors['maxlength'].actualLength }} caracteres.
+                  </p>
+                </div>
+              </div>
+  
+              <div class="relative w-full mb-3">
+                <label
+                  for="email"
+                  class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  htmlFor="grid-password"
+                >
+                  Email
+                </label>
+                <input
+                formControlName="email"
+                  type="email"
+                  class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring focus: ring-red-300 w-full ease-linear transition-all duration-550"
+                  placeholder="Email"
+                />
+
+                <!-- mensajes de validación -->
+                <div *ngIf="formularioRegister.controls['email'].errors && formularioRegister.controls['email'].dirty" class="alert alert-danger mt-1">
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioRegister.controls['email'].errors['required']">Campo requerido</p>
+
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioRegister.controls['email'].errors['minlength']">
+                      Este campo debe poseer al menos {{ formularioRegister.controls['email'].errors['minlength'].requiredLength }} caracteres.
+                      Tipeados {{ formularioRegister.controls['email'].errors['minlength'].actualLength }} caracter(es).
+                  </p>
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioRegister.controls['email'].errors['maxlength']">
+                      Este campo debe poseer como máximo {{ formularioRegister.controls['email'].errors['maxlength'].requiredLength }} caracteres.
+                      Tipeados {{ formularioRegister.controls['email'].errors['maxlength'].actualLength }} caracteres.
+                  </p>
+                </div>
+              </div>
+  
+              <div class="relative w-full mb-3">
+                <label
+                  for="password"
+                  class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  htmlFor="grid-password"
+                >
+                  Password
+                </label>
+                <input
+                formControlName="password"
+                  type="password"
+                  class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring focus: ring-red-300 w-full ease-linear transition-all duration-550"
+                  placeholder="Password"
+                />
+
+                <!-- mensajes de validación -->
+                <div *ngIf="formularioRegister.controls['password'].errors && formularioRegister.controls['password'].dirty" class="alert alert-danger mt-1">
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioRegister.controls['password'].errors['required']">Campo requerido</p>
+
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioRegister.controls['password'].errors['minlength']">
+                      Este campo debe poseer al menos {{ formularioRegister.controls['password'].errors['minlength'].requiredLength }} caracteres.
+                      Tipeados {{ formularioRegister.controls['password'].errors['minlength'].actualLength }} caracter(es).
+                  </p>
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioRegister.controls['password'].errors['maxlength']">
+                      Este campo debe poseer como máximo {{ formularioRegister.controls['password'].errors['maxlength'].requiredLength }} caracteres.
+                      Tipeados {{ formularioRegister.controls['password'].errors['maxlength'].actualLength }} caracteres.
+                  </p>
+                </div>
+              </div>
+  
+              <div>
+                <label for="agree" class="inline-flex items-center cursor-pointer">
+                  <input
+                  formControlName="agree"
+                    id="customCheckLogin"
+                    type="checkbox"
+                    class="form-checkbox border-0 text-gray-700 ml-1 w-5 h-5 ease-linear checked:bg-red-700 transition-all duration-150 rounded "
+                  />
+                  <span class="ml-2 text-sm font-semibold text-blueGray-600">
+                    Acepto Terminos y Condiciones
+                    
+                  </span>
+                </label>
+              </div>
+  
+              <div class="text-center mt-6">
+                <button class="bg-red-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                  type="button"
+                  type="submit"
+                  [disabled]="formularioRegister.invalid"
+                >
+                  Crear Cuenta
+                </button>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

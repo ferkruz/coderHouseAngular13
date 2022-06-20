@@ -1,0 +1,120 @@
+<div class="container mx-auto px-4 h-full">
+    <div class="flex content-center items-center justify-center h-full">
+      <div class="w-full lg:w-4/12 px-4">
+        <div
+          class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg border-0"
+        >
+          <div class="rounded-t mb-0 px-6 py-6">
+            <div class="text-center mb-3">
+              <h4 class="text-2xl font-semibold">Login</h4>
+            </div>
+            <hr class="mt-6 border-b-1 border-blueGray-300" />
+          </div>
+          <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+
+            
+            
+            <form [formGroup]="formularioLogin" (ngSubmit)="submitLogin()">
+              <div class="relative w-full mb-3">
+                <label
+                  for="email"
+                  class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  htmlFor="grid-password">
+                  Email
+                </label>
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring focus: ring-red-300 w-full ease-linear transition-all duration-550"
+                  placeholder="Email"
+                />
+
+                <!-- mensajes de validación -->
+                  <div *ngIf="formularioLogin.controls['email'].errors && formularioLogin.controls['email'].dirty" class="alert alert-danger mt-1">
+                    <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['email'].errors['required']">Campo requerido</p>
+                   
+                    <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['email'].errors['minlength']">
+                        Este campo debe poseer al menos {{ formularioLogin.controls['email'].errors['minlength'].requiredLength }} caracteres.
+                        Tipeados {{ formularioLogin.controls['email'].errors['minlength'].actualLength }} caracter(es).
+                    </p>
+                    <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['email'].errors['maxlength']">
+                        Este campo debe poseer como máximo {{ formularioLogin.controls['email'].errors['maxlength'].requiredLength }} caracteres.
+                        Tipeados {{ formularioLogin.controls['email'].errors['maxlength'].actualLength }} caracteres.
+                    </p>
+                  </div>
+
+              </div>
+  
+              <div class="relative w-full mb-3">
+                <label
+                  for="password"
+                  class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                  htmlFor="grid-password">
+                  Password
+                </label>
+                <input
+                  formControlName="password"
+                  type="password"
+                  class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ring-red-300 w-full ease-linear transition-all duration-550"
+                  placeholder="Password"
+                />
+
+                <!-- mensajes de validación -->
+                <div *ngIf="formularioLogin.controls['password'].errors && formularioLogin.controls['password'].dirty" class="alert alert-danger mt-1">
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['password'].errors['required']">Campo requerido</p>
+
+                    <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['password'].errors['minlength']">
+                      Este campo debe poseer al menos {{ formularioLogin.controls['password'].errors['minlength'].requiredLength }} caracteres.
+                      Tipeados {{ formularioLogin.controls['password'].errors['minlength'].actualLength }} caracter(es).
+                    </p>
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['password'].errors['maxlength']">
+                      Este campo debe poseer como máximo {{ formularioLogin.controls['password'].errors['maxlength'].requiredLength }} caracteres.
+                      Tipeados {{ formularioLogin.controls['password'].errors['maxlength'].actualLength }} caracteres.
+                  </p>
+                </div>
+
+              </div>
+              <div>
+                <label for="remember" class="inline-flex items-center cursor-pointer">
+                  <input
+                    formControlName="remember"
+                    id="customCheckLogin"
+                    type="checkbox"
+                    class="form-checkbox border-0 text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150 rounded"
+                  />
+                  <span class="ml-2 text-sm font-semibold text-blueGray-600">
+                    Recordar Usuario
+                  </span>
+                </label>
+              </div>
+  
+              <div class="text-center mt-6">
+                <button class="bg-blue-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                  type="submit"
+                  [disabled]="formularioLogin.invalid"
+                >
+                  Acceder
+                </button>
+              </div>
+            </form>
+
+
+
+            
+          </div>
+        </div>
+        <div class="flex flex-wrap mt-6 relative">
+          <div class="w-1/2">
+            <a href="javascript:void(0)" class="text-blueGray-200">
+              <small>Olvido su password?</small>
+            </a>
+          </div>
+          <div class="w-1/2 text-right">
+            <a [routerLink]="['/auth/register']" class="text-blueGray-200">
+              <small>Crear Nueva Cuenta</small>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
