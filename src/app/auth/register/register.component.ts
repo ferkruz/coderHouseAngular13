@@ -26,9 +26,8 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(this.maxCantChrNombre)
       ])],
       email : ['', Validators.compose([
-                    Validators.required,
-                    Validators.minLength(this.minCantChrNombre),
-                    Validators.maxLength(this.maxCantChrNombre)
+        Validators.required,
+        Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')
       ])],
       password : ['', Validators.compose([
                       Validators.required,

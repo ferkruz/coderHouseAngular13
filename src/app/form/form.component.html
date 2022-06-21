@@ -21,7 +21,7 @@
                 />
 
                 <!-- mensajes de validación -->
-                <div *ngIf="formularioForm.controls['name'].errors && formularioForm.controls['name'].dirty" class="alert alert-danger mt-1">
+                <div *ngIf="formularioForm.controls['name'].errors && (formularioForm.controls['name'].dirty || formularioForm.controls['name'].touched)">
                     <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['name'].errors['required']">Campo requerido</p>
                     
                     <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['name'].errors['minlength']">
@@ -49,17 +49,13 @@
                         />
 
                         <!-- mensajes de validación -->
-                        <div *ngIf="formularioForm.controls['email'].errors && formularioForm.controls['email'].dirty" class="alert alert-danger mt-1">
+                        <div *ngIf="formularioForm.controls['email'].errors && (formularioForm.controls['email'].dirty || formularioForm.controls['email'].touched)">
                             <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['email'].errors['required']">Campo requerido</p>
 
-                            <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['email'].errors['minlength']">
-                                Este campo debe poseer al menos {{ formularioForm.controls['email'].errors['minlength'].requiredLength }} caracteres.
-                                Tipeados {{ formularioForm.controls['email'].errors['minlength'].actualLength }} caracter(es).
+                            <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['email'].errors['pattern']">
+                                Ingrese un Email valido
                             </p>
-                            <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['email'].errors['maxlength']">
-                                Este campo debe poseer como máximo {{ formularioForm.controls['email'].errors['maxlength'].requiredLength }} caracteres.
-                                Tipeados {{ formularioForm.controls['email'].errors['maxlength'].actualLength }} caracteres.
-                            </p>
+                            
                         </div>
 
                     </div>
@@ -71,11 +67,11 @@
                             formControlName="telefono"
                             type="number"
                             class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring focus: ring-red-300 w-full ease-linear transition-all duration-550"
-                            placeholder="Email"
+                            placeholder="Teléfono"
                         />
 
                         <!-- mensajes de validación -->
-                        <div *ngIf="formularioForm.controls['telefono'].errors && formularioForm.controls['telefono'].dirty" class="alert alert-danger mt-1">
+                        <div *ngIf="formularioForm.controls['telefono'].errors && (formularioForm.controls['telefono'].dirty || formularioForm.controls['telefono'].touched)">
                         <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['telefono'].errors['required']">Campo requerido</p>
 
                         <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['telefono'].errors['minlength']">
@@ -106,6 +102,12 @@
                           <option>NodeJS</option>
                           <option>Flutter</option>
                         </select>
+
+                        <!-- mensajes de validación -->
+                        <div *ngIf="formularioForm.controls['curso'].errors &&  formularioForm.controls['curso'].touched">
+                            <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['curso'].errors['required']">Campo requerido</p>
+                        </div>
+
                       </div>
                     </div>
                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
@@ -150,7 +152,7 @@
                     ></textarea>
 
                     <!-- mensajes de validación -->
-                    <div *ngIf="formularioForm.controls['mensaje'].errors && formularioForm.controls['mensaje'].dirty" class="alert alert-danger mt-1">
+                    <div *ngIf="formularioForm.controls['mensaje'].errors && (formularioForm.controls['mensaje'].dirty || formularioForm.controls['mensaje'].touched)">
                         <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['mensaje'].errors['required']">Campo requerido</p>
 
                         <p class="text-red-700 font-ligth text-xs" *ngIf="formularioForm.controls['mensaje'].errors['minlength']">

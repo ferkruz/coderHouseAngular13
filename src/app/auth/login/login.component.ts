@@ -22,9 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.formularioLogin = fb.group({
       email : ['', Validators.compose([
-                    Validators.required,
-                    Validators.minLength(this.minCantChrNombre),
-                    Validators.maxLength(this.maxCantChrNombre)
+        Validators.required,
+        Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')
       ])],
       password : ['', Validators.compose([
                       Validators.required,

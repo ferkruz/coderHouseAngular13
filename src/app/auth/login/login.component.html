@@ -30,18 +30,13 @@
                 />
 
                 <!-- mensajes de validación -->
-                  <div *ngIf="formularioLogin.controls['email'].errors && formularioLogin.controls['email'].dirty" class="alert alert-danger mt-1">
-                    <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['email'].errors['required']">Campo requerido</p>
-                   
-                    <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['email'].errors['minlength']">
-                        Este campo debe poseer al menos {{ formularioLogin.controls['email'].errors['minlength'].requiredLength }} caracteres.
-                        Tipeados {{ formularioLogin.controls['email'].errors['minlength'].actualLength }} caracter(es).
-                    </p>
-                    <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['email'].errors['maxlength']">
-                        Este campo debe poseer como máximo {{ formularioLogin.controls['email'].errors['maxlength'].requiredLength }} caracteres.
-                        Tipeados {{ formularioLogin.controls['email'].errors['maxlength'].actualLength }} caracteres.
-                    </p>
-                  </div>
+                <div *ngIf="formularioLogin.controls['email'].errors && (formularioLogin.controls['email'].dirty || formularioLogin.controls['email'].touched)">
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['email'].errors['required']">Campo requerido</p>
+
+                  <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['email'].errors['pattern']">
+                      Ingrese un Email valido
+                  </p>
+                </div>
 
               </div>
   
@@ -60,7 +55,7 @@
                 />
 
                 <!-- mensajes de validación -->
-                <div *ngIf="formularioLogin.controls['password'].errors && formularioLogin.controls['password'].dirty" class="alert alert-danger mt-1">
+                <div *ngIf="formularioLogin.controls['password'].errors && (formularioLogin.controls['password'].dirty || formularioLogin.controls['email'].touched)">
                   <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['password'].errors['required']">Campo requerido</p>
 
                     <p class="text-red-700 font-ligth text-xs" *ngIf="formularioLogin.controls['password'].errors['minlength']">

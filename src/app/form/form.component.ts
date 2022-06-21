@@ -27,8 +27,7 @@ export class FormComponent implements OnInit {
       ])],
       email : ['', Validators.compose([
                     Validators.required,
-                    Validators.minLength(this.minCantChrNombre),
-                    Validators.maxLength(this.maxCantChrNombre)
+                    Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')
       ])],
       telefono : [, Validators.compose([
         Validators.required,
